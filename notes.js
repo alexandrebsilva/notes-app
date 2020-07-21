@@ -32,9 +32,9 @@ const findNote = (title) => {
 
 const addNote = (title, body) => {
     const notes = loadNotesFromFile()
-    const duplicatedTitles = notes.filter(note => note.title === title)
+    const duplicatedTitles = notes.find(note => note.title === title)
 
-    if (duplicatedTitles.length === 0) {
+    if (duplicatedTitles === undefined) {
         notes.push({ title, body })
         saveNotes(notes)
         console.log(chalk.green.inverse('Note added successfully'))
