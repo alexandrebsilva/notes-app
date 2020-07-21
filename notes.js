@@ -19,11 +19,11 @@ const listNotes = function () {
 
 const findNote = (title) => {
     const notes = loadNotesFromFile()
-    const wantedNote = notes.filter(note => title == note.title)
-    if (wantedNote.length !== 0) {
-        console.log(wantedNote[0])
-        console.log(chalk.green.inverse('Note found!'))
+    const wantedNote = notes.find(note => title == note.title)
 
+    if (wantedNote) {
+        console.log(chalk.green.inverse('Note found!'))
+        console.log(wantedNote)
     }
     else {
         console.log(chalk.red.inverse('Note not found :('))
